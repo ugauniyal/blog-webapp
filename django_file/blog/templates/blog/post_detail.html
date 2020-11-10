@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+    <article>
+        <p>
+            <img src="{{ object.author.profile.image.url }}">
+            <p>Title: {{object.title}}</p>
+            <p>Author: {{object.author}}</p>
+            <p>{{object.content}}</p>
+            <p>Submitted on: {{object.date_posted|date:"F d, Y" }}</p>
+
+            {% if object.author == user %}
+                <form action="{% url 'Post-Update' object.id %}">
+                    <button type="submit">Update Post</button>
+                </form>
+                <form action="{% url 'Post-Delete' object.id %}">
+                    <button type="submit">Delete Post</button>
+                </form>
+                <form action="http://localhost:8000">
+                    <button type="submit">Home</button>
+                </form>
+            {% endif %}
+        </p>
+
+{% endblock %}
