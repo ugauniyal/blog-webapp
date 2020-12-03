@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
@@ -12,3 +13,5 @@ urlpatterns = [
     path("about/", views.about, name="Blog-About"),
     path("contact/", views.contact, name="Contact Us"),
 ]
+
+urlpatterns += staticfiles_urlpatterns()

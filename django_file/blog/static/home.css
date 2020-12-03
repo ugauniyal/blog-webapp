@@ -1,0 +1,31 @@
+.profile-img{
+    display: inline;
+    border-radius: 50%;
+    width: 22rem;
+    height: 22rem;
+    padding: 2%;
+
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.flex-box{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+
+}
+
+.article-title{
+    color: black;
+    font-weight: bold;
+}
+
+.article-title a{
+    color: black;
+    font-weight: normal;
+}

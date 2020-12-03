@@ -1,6 +1,7 @@
 {% extends "blog/base.html" %}
 {% block content %}
-
+{% load static %}
+    
     <h1>Blog Home</h1>
     <hr/>
     <br/>
@@ -11,35 +12,50 @@
         <main>
             <article>
                 <p>{% for post in posts %}
-                    <img src="{{ post.author.profile.image.url }}">
-                    <h3>Title: <a class="article-title" href="{% url 'Post-Detail' post.id %}">{{post.title}}</a></h3>
-                    <p>Author: {{post.author}}</p>
-                    <p>{{post.content}}</p>
-                    <p>Submitted on: {{post.date_posted|date:"F d, Y" }}</p>
-
+                    <div class="flex-container">
+                        <img class="profile-img" src="{{ post.author.profile.image.url }}">
+                        <div class="flex-box">
+                            <h3 class="article-title">Title: <a href="{% url 'Post-Detail' post.id %}">{{post.title}}</a></h3>
+                            <p>Author: <b>{{post.author}}</b></p>
+                            <p>{{post.content}}</p>
+                            <p>Submitted on: {{post.date_posted|date:"F d, Y" }}</p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <br/>
                     {% endfor %}
                 </p>
             </article>
         </main>
-    <footer>
-        <span>
-            <form action="http://localhost:8000/about">
-                <button type="submit">About</button>
-            </form>
-            <form action="http://localhost:8000/contact">
-                <button type="submit">Contact Us</button>
-            </form>
-            <form action="http://localhost:8000/register">
-                <button type="submit">Register</button>
-            </form>
-            <form action="http://localhost:8000/logout">
-                <button type="submit">Logout</button>
-            </form>
-            <form action="http://localhost:8000/profile">
-                <button type="submit">Profile</button>
-            </form>
-        </span>
-    </footer>
+    
+    <!-- Footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+					<ul class="list-unstyled list-inline social text-center">
+						<li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-github"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						<li class="list-inline-item"><a href="#" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                    </ul>
+				</div>
+				<hr>
+            </div>
+            <br/>	
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p class="h6">© All Rights Reversed</p>
+				</div>
+				<hr>
+			</div>	
+		</div>
+	</div>
+	<!-- ./Footer -->
+
 
     
 {% endblock content %}
