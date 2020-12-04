@@ -26,6 +26,7 @@ class PostListView(ListView):
     template_name = "blog/home.html"
     context_object_name = "posts"
     ordering = ["-date_posted"]
+    paginate_by = 5
 
 
 class PostDetailView(DetailView):
@@ -74,4 +75,7 @@ def about(request):
 
 
 def contact(request):
-    return render(request, "blog/contact.html")
+    if request.method == "POST":
+        return render(request, "blog/contact.html")
+    else:    
+        return render(request, "blog/contact.html")

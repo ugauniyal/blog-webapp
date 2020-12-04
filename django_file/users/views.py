@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def register_page(request):
+
     form = CreateUserForm()
 
     if request.method == "POST":
@@ -44,7 +45,7 @@ def login_page(request):
 @login_required(login_url="login")
 def logout_user(request):
     logout(request)
-    return redirect("login")
+    return redirect(blog_views.contact)
 
 
 @login_required(login_url="login")

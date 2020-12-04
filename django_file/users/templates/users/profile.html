@@ -2,7 +2,11 @@
 {% block content %}
     <div class="content-section">
         <div class="media">
-        <img class="rounded-circle account-img" src="{{user.profile.image.url}}">
+        <img class="rounded-circle account-img" style="display: inline;
+        border-radius: 50%;
+        width: 30rem;
+        height: 30rem;
+        padding: 2%;" src="{{user.profile.image.url}}">
         <div class="media-body">
             <h3 class="account-heading">Username: {{user.username}}</h3>
             <br/>
@@ -17,7 +21,10 @@
                 <fieldset class="form-group">
                     <legend>Profile Info</legend>
                     {{ user_form.as_p }}
+                    <br/>
+                    <br/>
                     {{ profile_form.as_p }}
+                    <br/>
                 </fieldset>
             </div>
             <div class="form-group">

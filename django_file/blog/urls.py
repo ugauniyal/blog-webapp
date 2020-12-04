@@ -11,7 +11,7 @@ urlpatterns = [
     path("post/<int:pk>/update", PostUpdateView.as_view(), name="Post-Update"),
     path("post/<int:pk>/delete", PostDeleteView.as_view(), name="Post-Delete"),
     path("about/", views.about, name="Blog-About"),
-    path("contact/", views.contact, name="Contact Us"),
+    path("contact/", views.contact, name="Contact-Us"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
